@@ -5,7 +5,9 @@
   --logo--bg--button--link--color: #2196f3;
   --logo--second--color: #000000;
   --second--bg--button--color: #f5f4fa;
-  --footer--hero--bg--color: #2f303a;
+  --footer--bg--color: #2f303a;
+  --hero-bg-color: #c4c4c4;
+  --icon-color: #AFB1B8;
   --primery--font: 'Roboto', sans-serif;
   --portfolio-gap: 30px;
   --item: 3;
@@ -112,7 +114,8 @@ address {
 }
 
 .header-contact {
-  display: block;
+  display: flex;
+  align-items: center;
   padding: 32px 0;
   color: var(--secondary--color);
   font-weight: 500;
@@ -121,12 +124,17 @@ address {
   letter-spacing: 0.02em;
 }
 
+.header-contact-icon {
+  fill: currentColor;
+  margin-right: 10px;
+}
+
 .header-contact:hover,
 .header-contact:focus {
   color: var(--logo--bg--button--link--color);
 }
 
-.header-contact-item + .header-contact-item {
+.header-contact-item+.header-contact-item {
   margin-left: 50px;
 }
 
@@ -136,7 +144,14 @@ address {
 
 /* ---------------------hero------------------ */
 .hero {
-  background-color: var(--footer--hero--bg--color);
+  background-color: var(--hero-bg-color);
+  background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+    url(../image/bg_hero.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  max-width: 1600px;
+  margin: 0 auto;
   text-align: center;
   padding: 200px 0;
 }
@@ -188,6 +203,16 @@ address {
   width: 270px;
 }
 
+.benefits-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  margin-bottom: 30px;
+  background-color: var(--second--bg--button--color);
+  border-radius: 4px;
+}
+
 .benefits-title {
   font-size: 14px;
   line-height: calc(16 / 14);
@@ -235,22 +260,23 @@ address {
   line-height: calc(42 / 36);
 }
 
-.team .list {
+.team>.container>.list {
   display: flex;
   flex-wrap: wrap;
   gap: var(--portfolio-gap);
   --item: 4;
 }
+
 .card {
   flex-basis: calc((100% - (var(--portfolio-gap) * (var(--item) - 1))) / var(--item));
-  background: #ffffff;
+  background: var(--hero--text--color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0px 0px 4px 4px;
   text-align: center;
 }
 
 .team-content {
-  padding: 30px;
+  padding: 30px 32px;
 }
 
 .team-member {
@@ -261,9 +287,75 @@ address {
 }
 
 .team-text {
+  margin-bottom: 16px;
   font-size: 16px;
   line-height: calc(19 / 16);
   color: var(--secondary--color);
+}
+
+.social-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: var(--icon-color);
+}
+
+.social-link:hover,
+.social-link:focus {
+  background-color: var(--logo--bg--button--link--color);
+  color: var(--hero--text--color);
+}
+
+.social-icon {
+  fill: currentColor;
+}
+
+/* -----------clients------------- */
+.clients {
+  padding: 94px 0;
+  text-align: center;
+}
+
+.clients-title {
+  margin-bottom: 50px;
+  font-size: 36px;
+  line-height: 1.2;
+}
+
+.clients-list {
+  display: flex;
+  gap: var(--portfolio-gap);
+}
+
+.clients-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 170px;
+  height: 92px;
+  border: 1px solid var(--icon-color);
+  border-radius: 4px;
+  color: var(--icon-color);
+}
+
+.clients-icon {
+  fill: currentColor;
+}
+
+.clients-link:hover,
+.clients-link:focus {
+  color: var(--logo--bg--button--link--color);
+  border-color: var(--logo--bg--button--link--color);
 }
 
 /* --------------------PORTFOLIO------------------ */
@@ -292,7 +384,7 @@ address {
   margin-bottom: 50px;
 }
 
-.portfolio-item + .portfolio-item {
+.portfolio-item+.portfolio-item {
   margin-left: 8px;
 }
 
@@ -332,6 +424,11 @@ address {
   margin-left: var(--portfolio-gap);
 }
 
+.project-item:hover,
+.project-item:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
 .project-content {
   padding: 20px 24px;
   border: 1px solid #eeeeee;
@@ -353,21 +450,28 @@ address {
 
 /* ----------------------footer------------------ */
 .bg-footer {
-  background-color: var(--footer--hero--bg--color);
+  background-color: var(--footer--bg--color);
   padding: 60px 0;
+}
+
+.footer-box {
+  display: flex;
+  align-items: baseline;
+  gap: 70px;
 }
 
 .bg-footer .logo {
   display: block;
   margin-bottom: 20px;
 }
+
 .address-text {
   font-style: normal;
   line-height: calc(24 / 14);
   color: var(--hero--text--color);
 }
 
-.bg-footer li + li {
+.bg-footer address li+li {
   margin-top: 9px;
 }
 
@@ -382,4 +486,38 @@ address {
 .address-contacts:hover,
 .address-contacts:focus {
   color: var(--logo--bg--button--link--color);
+}
+
+.foot-contact-text {
+  margin-bottom: 20px;
+  font-weight: 700;
+  line-height: calc(16 / 14);
+  text-transform: uppercase;
+  color: var(--hero--text--color);
+}
+
+.foot-contact-list {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.foot-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background-color: rgba(255, 255, 255, 0.1);;
+  border-radius: 50%;
+  color: var(--hero--text--color);
+}
+
+.foot-link:hover,
+.foot-link:focus {
+  background-color: var(--logo--bg--button--link--color);
+}
+
+.foot-icon {
+  fill: currentColor;
 }
